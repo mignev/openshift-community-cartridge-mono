@@ -1,0 +1,2 @@
+#!/bin/sh
+exec /opt/mono/bin/mono $MONO_OPTIONS "/opt/mono/lib/xsp/2.0/dbsessmgr2.exe" "$@"

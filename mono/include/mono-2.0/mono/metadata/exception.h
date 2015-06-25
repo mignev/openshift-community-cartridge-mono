@@ -1,6 +1,9 @@
 #ifndef _MONO_METADATA_EXCEPTION_H_
 #define _MONO_METADATA_EXCEPTION_H_
 
+/* here for compat: should not be used anymore */
+#define MONO_ARCH_SAVE_REGS 
+
 #include <mono/metadata/object.h>
 #include <mono/metadata/image.h>
 
