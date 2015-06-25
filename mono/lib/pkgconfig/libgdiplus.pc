@@ -6,7 +6,7 @@ includedir=${prefix}/include
 
 Name: libgdiplus
 Description: GDI+ implementation
-Version: 2.10
+Version: 3.8
 Requires: glib-2.0 gmodule-2.0 gthread-2.0
-Libs: -L${libdir} -lgdiplus -lglib-2.0   $(top_builddir)/cairo/src/libcairo.la  -lfontconfig   -lfreetype    -ltiff -ljpeg -lungif -lpng12  
-Cflags: -I${includedir} -I/usr/include/glib-2.0 -I/usr/lib64/glib-2.0/include   -I$(top_builddir)/pixman/pixman -I$(top_srcdir)/pixman/pixman -I$(top_builddir)/cairo/src -I$(top_srcdir)/cairo/src    -I/usr/include/freetype2   
+Libs: -L${libdir} -lgdiplus -lglib-2.0   -lcairo    -lfontconfig   -lfreetype   -lXrender -lX11   -L${libjpeg_prefix}/lib -ljpeg -ltiff -lungif -lpng12  
+Cflags: -I${includedir} -I/usr/include/glib-2.0 -I/usr/lib64/glib-2.0/include   -I/usr/include/cairo -I/usr/include/pixman-1 -I/usr/include/freetype2 -I/usr/include/libpng12      -I/usr/include/freetype2    
