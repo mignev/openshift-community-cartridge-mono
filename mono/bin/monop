@@ -1,2 +1,2 @@
 #!/bin/sh
-exec /usr/local/bin/mono $MONO_OPTIONS /usr/local/lib/mono/4.5/monop.exe "$@"
+exec /opt/mono/bin/mono $MONO_OPTIONS /opt/mono/lib/mono/4.5/monop.exe "$@"

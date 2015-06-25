@@ -1,6 +1,6 @@
-prefix=/usr/local
+prefix=/opt/mono
 exec_prefix=${prefix}
-libdir=/usr/local/lib
+libdir=/opt/mono/lib
 sourcesdir=${libdir}/monodoc/sources
 
 Name: Monodoc
