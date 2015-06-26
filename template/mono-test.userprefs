@@ -1,8 +1,9 @@
 ﻿<Properties StartupItem="mono-test.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Controllers/HomeController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="mono-test.csproj">
     <Files>
-      <File FileName="Controllers/HomeController.cs" Line="10" Column="34" />
+      <File FileName="Controllers/HomeController.cs" Line="8" Column="31" />
+      <File FileName="mono-test.csproj" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
