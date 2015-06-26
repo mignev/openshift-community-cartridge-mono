@@ -1,6 +1,7 @@
 ﻿namespace NancyApplication3
 {
     using System;
+	using Nancy;
     using Nancy.Hosting.Self;
 
     class Program
@@ -8,22 +9,25 @@
         static void Main(string[] args)
         {
 			try{
-				string envierenmentIP = System.Environment.GetEnvironmentVariable("OPENSHIFT_GEAR_DNS");
+				string envierenmentDNS = System.Environment.GetEnvironmentVariable("OPENSHIFT_GEAR_DNS");
+				string envierenmentIP = System.Environment.GetEnvironmentVariable("OPENSHIFT_MONO_IP");
 				string envierenmentPort = System.Environment.GetEnvironmentVariable("OPENSHIFT_MONO_PORT");
 
-//				envierenmentIP = "127.0.0.1";
-//				envierenmentPort = "19032";
+				HostConfiguration hostConfigs = new HostConfiguration()
+				{
+					UrlReservations = new UrlReservations() { CreateAutomatically = true }
+				};
 
-				using (var host = new NancyHost(new HostConfiguration{RewriteLocalhost=true}, new Uri("http://" + envierenmentIP + ":" + envierenmentPort)))
+				using (var host = new NancyHost(hostConfigs, new Uri("http://" + envierenmentIP + ":" + envierenmentPort), new Uri("http://" + envierenmentDNS + ":" + envierenmentPort)))
 				{
 	                host.Start();
 
 	                Console.WriteLine("Your application is running");
 	                Console.WriteLine("Press any [Enter] to close the host.");
 	                Console.ReadLine();
-//					while (true) {
-//						System.Threading.Thread.Sleep (100);
-//					}
+					while (true) {
+						System.Threading.Thread.Sleep (100);
+					}
 	            }
 			}
 			catch(Exception ex){
