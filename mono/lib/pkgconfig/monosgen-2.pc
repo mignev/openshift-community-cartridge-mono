@@ -6,6 +6,6 @@ sysconfdir=${prefix}/etc
 
 Name: Mono
 Description: Mono Runtime
-Version: 4.0.2
-Libs: -L${libdir}  -lmonosgen-2.0  -lm -lrt  -ldl -lpthread
+Version: 3.8.0
+Libs: -L${libdir} -Wl,--export-dynamic -lmonosgen-2.0  -lm -lrt  -ldl -lpthread
 Cflags: -I${includedir} -D_REENTRANT

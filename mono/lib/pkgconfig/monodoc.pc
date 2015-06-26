@@ -1,9 +1,9 @@
-prefix=/opt/mono
+prefix=${OPENSHIFT_MONO_DIR}/mono
 exec_prefix=${prefix}
-libdir=/opt/mono/lib
+libdir=${OPENSHIFT_MONO_DIR}/mono/lib
 sourcesdir=${libdir}/monodoc/sources
 
 Name: Monodoc
 Description: Monodoc - Mono Documentation Tools
-Version: 4.0.2
+Version: 3.8.0
 Libs: /r:${prefix}/lib/mono/monodoc/monodoc.dll 
