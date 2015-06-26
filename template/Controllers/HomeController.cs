@@ -3,33 +3,22 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Mvc.Ajax;
 
-namespace OpenShift.Controllers
+namespace monotest.Controllers
 {
-    public class HomeController : Controller
-    {
-        public ActionResult Index()
-        {
-            ViewBag.Message = "This is the landing page for your ASP.NET MVC application on OpenShift.";
+	public class HomeController : Controller
+	{
+		public ActionResult Index ()
+		{
+			var mvcName = typeof(Controller).Assembly.GetName ();
+			var isMono = Type.GetType ("Mono.Runtime") != null;
 
-            return View();
-        }
+			ViewData ["Version"] = mvcName.Version.Major + "." + mvcName.Version.Minor;
+			ViewData ["Runtime"] = isMono ? "Mono" : ".NET";
 
-        public ActionResult GettingStarted()
-        {
-            ViewBag.Message = "This page will go through the steps of getting you up and running.";
-			ViewBag.GitURL = "ssh://" + Environment.GetEnvironmentVariable ("OPENSHIFT_GEAR_UUID") + "@" +
-				Environment.GetEnvironmentVariable ("OPENSHIFT_GEAR_DNS") + "/~/git/" + 
-				Environment.GetEnvironmentVariable ("OPENSHIFT_GEAR_NAME") + ".git";
-
-            return View();
-        }
-
-        public ActionResult Community()
-        {
-            ViewBag.Message = "Your gateway to the OpenShift Community.";
-
-            return View();
-        }
-    }
+			return View ();
+		}
+	}
 }
+
