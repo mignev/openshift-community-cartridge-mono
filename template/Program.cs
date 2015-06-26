@@ -7,18 +7,29 @@
     {
         static void Main(string[] args)
         {
-            string envierenmentUrl = System.Environment.GetEnvironmentVariable("OPENSHIFT_MONO_IP") + System.Environment.GetEnvironmentVariable("OPENSHIFT_MONO_PORT");
-            var uri =
-                new Uri("http://" + envierenmentUrl);
+			try{
+				string envierenmentIP = System.Environment.GetEnvironmentVariable("OPENSHIFT_GEAR_DNS");
+				string envierenmentPort = System.Environment.GetEnvironmentVariable("OPENSHIFT_MONO_PORT");
 
-            using (var host = new NancyHost(uri))
-            {
-                host.Start();
+//				envierenmentIP = "127.0.0.1";
+//				envierenmentPort = "19032";
 
-                Console.WriteLine("Your application is running on " + uri);
-                Console.WriteLine("Press any [Enter] to close the host.");
-                Console.ReadLine();
-            }
+				using (var host = new NancyHost(new HostConfiguration{RewriteLocalhost=true}, new Uri("http://" + envierenmentIP + ":" + envierenmentPort)))
+				{
+	                host.Start();
+
+	                Console.WriteLine("Your application is running");
+	                Console.WriteLine("Press any [Enter] to close the host.");
+	                Console.ReadLine();
+//					while (true) {
+//						System.Threading.Thread.Sleep (100);
+//					}
+	            }
+			}
+			catch(Exception ex){
+				Console.WriteLine (ex.Message);
+				Console.ReadLine ();
+			}
         }
     }
 }
