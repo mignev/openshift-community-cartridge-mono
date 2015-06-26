@@ -1,2 +1,2 @@
 #!/bin/sh
-mcs -sdk:4 "$@"
+exec ${OPENSHIFT_MONO_DIR}/mono/bin/mono $MONO_OPTIONS ${OPENSHIFT_MONO_DIR}/mono/lib/mono/4.5/mcs.exe -sdk:4 "$@"
