@@ -1,4 +1,4 @@
 Name: Reactive Extensions
 Description: Reactive Extensions
-Version: 3.8.0
+Version: 4.0.2
 Libs: -r:${OPENSHIFT_MONO_DIR}/mono/lib/mono/4.5/System.Reactive.Interfaces.dll -r:${OPENSHIFT_MONO_DIR}/mono/lib/mono/4.5/System.Reactive.Core.dll -r:${OPENSHIFT_MONO_DIR}/mono/lib/mono/4.5/System.Reactive.Linq.dll -r:${OPENSHIFT_MONO_DIR}/mono/lib/mono/4.5/System.Reactive.PlatformServices.dll -r:${OPENSHIFT_MONO_DIR}/mono/lib/mono/4.5/System.Reactive.Providers.dll -r:${OPENSHIFT_MONO_DIR}/mono/lib/mono/4.5/System.Reactive.Debugger.dll -r:${OPENSHIFT_MONO_DIR}/mono/lib/mono/4.5/System.Reactive.Experimental.dll -r:${OPENSHIFT_MONO_DIR}/mono/lib/mono/4.5/System.Reactive.Runtime.Remoting.dll
