@@ -17,7 +17,7 @@ old_library='libmono-profiler-aot.a'
 inherited_linker_flags=''
 
 # Libraries that this one depends upon.
-dependency_libs=' ${OPENSHIFT_MONO_DIR}/mono/lib/libmonosgen-2.0.la -L../../eglib/src -lm -lrt -ldl -lpthread'
+dependency_libs=' ~/mono/mono/lib/libmonosgen-2.0.la -L../../eglib/src -lm -lrt -ldl -lpthread'
 
 # Names of additional weak libraries provided by this library
 weak_library_names=''
@@ -38,4 +38,4 @@ dlopen=''
 dlpreopen=''
 
 # Directory that this library needs to be installed in:
-libdir='${OPENSHIFT_MONO_DIR}/mono/lib'
+libdir='~/mono/mono/lib'
