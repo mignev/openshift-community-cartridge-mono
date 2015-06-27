@@ -4,7 +4,7 @@ chown $OPENSHIFT_APP_UUID.$OPENSHIFT_APP_UUID -R "$OPENSHIFT_HOMEDIR"/.config "$
 mv "$OPENSHIFT_HOMEDIR"/mono/install/.mono "$OPENSHIFT_HOMEDIR"/.config
 mv "$OPENSHIFT_HOMEDIR"/mono/install/dnvm.sh "$OPENSHIFT_HOMEDIR"/.config/dnvm.sh
 echo "source $OPENSHIFT_HOMEDIR/.config/dnvm.sh" >> $OPENSHIFT_DATA_DIR/.bash_profile
-rm "$OPENSHIFT_HOMEDIR"/.config/dnvm.sh
+source $OPENSHIFT_DATA_DIR/.bash_profile
 
-#is_installed=$(cat $OPENSHIFT_DATA_DIR/.bash_profile| grep _DNVM_BUILDNUMBER'')
+#is_installed=$(cat $OPENSHIFT_DATA_DIR/.bash_profile| grep dnvm.sh'')
 #if [ ! -z "$is_installed"]
