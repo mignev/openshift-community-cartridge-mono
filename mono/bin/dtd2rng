@@ -1,2 +1,2 @@
 #!/bin/sh
-exec ~/mono/mono/bin/mono $MONO_OPTIONS ~/mono/mono/lib/mono/4.5/dtd2rng.exe "$@"
+exec ${OPENSHIFT_MONO_DIR}/mono/bin/mono $MONO_OPTIONS ${OPENSHIFT_MONO_DIR}/mono/lib/mono/4.5/dtd2rng.exe "$@"

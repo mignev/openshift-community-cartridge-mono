@@ -1,2 +1,2 @@
 #!/bin/sh
-exec ~/mono/mono/bin/mono --debug $MONO_OPTIONS ~/mono/mono/lib/mono/2.0/nunit-console.exe "$@"
+exec ${OPENSHIFT_MONO_DIR}/mono/bin/mono --debug $MONO_OPTIONS ${OPENSHIFT_MONO_DIR}/mono/lib/mono/2.0/nunit-console.exe "$@"

@@ -1,6 +1,6 @@
-prefix=~/mono/mono
+prefix=${OPENSHIFT_MONO_DIR}/mono
 exec_prefix=${prefix}
-libdir=~/mono/mono/lib
+libdir=${OPENSHIFT_MONO_DIR}/mono/lib
 sourcesdir=${libdir}/monodoc/sources
 
 Name: Monodoc

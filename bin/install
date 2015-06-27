@@ -1,6 +1,7 @@
 mkdir "$OPENSHIFT_HOMEDIR"/.config
 mkdir "$OPENSHIFT_HOMEDIR"/.dnx
-chown $OPENSHIFT_APP_UUID.$OPENSHIFT_APP_UUID -R "$OPENSHIFT_HOMEDIR"/.config "$OPENSHIFT_HOMEDIR"/.dnx
+mkdir "$OPENSHIFT_HOMEDIR"/.local
+chown $OPENSHIFT_APP_UUID.$OPENSHIFT_APP_UUID -R "$OPENSHIFT_HOMEDIR"/.config "$OPENSHIFT_HOMEDIR"/.dnx "$OPENSHIFT_HOMEDIR"/.local
 mv "$OPENSHIFT_HOMEDIR"/mono/install/.mono "$OPENSHIFT_HOMEDIR"/.config
 mv "$OPENSHIFT_HOMEDIR"/mono/install/dnvm.sh "$OPENSHIFT_HOMEDIR"/.config/dnvm.sh
 echo "source $OPENSHIFT_HOMEDIR/.config/dnvm.sh" >> $OPENSHIFT_DATA_DIR/.bash_profile
