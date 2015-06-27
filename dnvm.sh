@@ -7,7 +7,8 @@ _DNVM_AUTHORS="Microsoft Open Technologies, Inc."
 _DNVM_RUNTIME_PACKAGE_NAME="dnx"
 _DNVM_RUNTIME_FRIENDLY_NAME=".NET Execution Environment"
 _DNVM_RUNTIME_SHORT_NAME="DNX"
-_DNVM_RUNTIME_FOLDER_NAME=$OPENSHIFT_DATA_DIR
+_DNVM_RUNTIME_FOLDER_NAME=app-root/repo/packages
+#$OPENSHIFT_DATA_DIR
 _DNVM_COMMAND_NAME="dnvm"
 _DNVM_PACKAGE_MANAGER_NAME="dnu"
 _DNVM_VERSION_MANAGER_NAME=".NET Version Manager"
@@ -75,7 +76,7 @@ __dnvm_find_latest() {
         printf "%b\n" "${Red}$_DNVM_COMMAND_NAME needs curl to proceed. ${RCol}" >&2;
         return 1
     fi
-    
+
     if [[ $platform == "mono" ]]; then
         #dnx-mono
         local packageId="$_DNVM_RUNTIME_PACKAGE_NAME-$platform"
@@ -161,7 +162,7 @@ __dnvm_download() {
        printf "%b\n" "${Gre}$runtimeFullName already installed. ${RCol}"
         return 0
     fi
-    
+
     if ! __dnvm_has "curl"; then
        printf "%b\n" "${Red}$_DNVM_COMMAND_NAME needs curl to proceed. ${RCol}" >&2;
         return 1
@@ -273,15 +274,15 @@ __dnvm_description() {
    printf "%b\n" "${Yel}Current feed settings:${RCol}"
    printf "%b\n" "${Cya}Default Stable:${Yel} $_DNVM_DEFAULT_FEED"
    printf "%b\n" "${Cya}Default Unstable:${Yel} $_DNVM_DEFAULT_UNSTABLE_FEED"
-   
+
    local dnxStableOverride="<none>"
    [[ -n $DNX_FEED ]] && dnxStableOverride="$DNX_FEED"
 
    printf "%b\n" "${Cya}Current Stable Override:${Yel} $dnxStableOverride"
-   
+
    local dnxUnstableOverride="<none>"
    [[ -n $DNX_UNSTABLE_FEED ]] && dnxUnstableOverride="$DNX_UNSTABLE_FEED"
-    
+
    printf "%b\n" "${Cya}Current Unstable Override:${Yel} $dnxUnstableOverride${RCol}"
     echo ""
 
@@ -406,17 +407,17 @@ dnvm()
                 elif [[ $1 == "-arch" ]]; then
                     local arch=$2
                     shift
-                    
+
                     if [[ $arch != "x86" && $arch != "x64" ]]; then
-                        printf "%b\n" "${Red}Architecture must be x86 or x64.${RCol}" 
+                        printf "%b\n" "${Red}Architecture must be x86 or x64.${RCol}"
                         return 1
                     fi
-                    
+
                     if [[ $arch == "x86" && $runtime == "coreclr" ]]; then
                         printf "%b\n" "${Red}Core CLR doesn't currently have a 32 bit build. You must use x64.${RCol}"
                         return 1
                     fi
-                    
+
                 elif [[ -n $1 ]]; then
                     [[ -n $versionOrAlias ]] && echo "Invalid option $1" && __dnvm_help && return 1
                     local versionOrAlias=$1
@@ -445,7 +446,7 @@ dnvm()
             fi
 
             if [[ "$versionOrAlias" == "latest" ]]; then
-               echo "Determining latest version" 
+               echo "Determining latest version"
                versionOrAlias=$(__dnvm_find_latest "$runtime" "$arch")
                [[ $? == 1 ]] && echo "Error: Could not find latest version from feed $DNX_ACTIVE_FEED" && return 1
                printf "%b\n" "Latest version is ${Cya}$versionOrAlias ${RCol}"
@@ -546,14 +547,14 @@ dnvm()
                         echo "Cannot find $_DNVM_RUNTIME_SHORT_NAME in $runtimeBin. It may have been corrupted. Use '$_DNVM_COMMAND_NAME install $versionOrAlias -f' to attempt to reinstall it"
                     fi
                 ;;
-                "exec") 
+                "exec")
                     (
                         PATH=$(__dnvm_strip_path "$PATH" "/bin")
                         PATH=$(__dnvm_prepend_path "$PATH" "$runtimeBin")
                         $@
                     )
                 ;;
-                "use") 
+                "use")
                     echo "Adding" $runtimeBin "to process PATH"
 
                     PATH=$(__dnvm_strip_path "$PATH" "/bin")
