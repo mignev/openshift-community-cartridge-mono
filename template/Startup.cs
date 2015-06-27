@@ -1,15 +1,13 @@
-﻿using System;
-
-namespace NancyApplication3
+namespace TestNancy
 {
-	using Owin;
-
-	public class Startup
-	{
-		public void Configuration(IAppBuilder app)
-		{
-			app.UseNancy();
-		}
-	}
+    using Microsoft.AspNet.Builder;
+    using Nancy.Owin;
+ 
+    public class Startup
+    {
+        public void Configure(IApplicationBuilder app)
+        {
+            app.UseOwin(x => x.UseNancy());
+        }
+    }
 }
-

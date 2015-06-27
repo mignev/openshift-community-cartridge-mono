@@ -1,9 +1,0 @@
-/Users/HEDWIN/Desktop/openshift-community-cartridge-mono/template/obj/Debug/.NETFramework,Version=v4.5.AssemblyAttribute.cs
-/Users/HEDWIN/Desktop/openshift-community-cartridge-mono/template/bin/Debug/Views/index.sshtml
-/Users/HEDWIN/Desktop/openshift-community-cartridge-mono/template/bin/Debug/Content/nancy-logo.png
-/Users/HEDWIN/Desktop/openshift-community-cartridge-mono/template/bin/Debug/NancyApplication3.exe.mdb
-/Users/HEDWIN/Desktop/openshift-community-cartridge-mono/template/bin/Debug/NancyApplication3.exe
-/Users/HEDWIN/Desktop/openshift-community-cartridge-mono/template/obj/Debug/NancyApplication3.exe
-/Users/HEDWIN/Desktop/openshift-community-cartridge-mono/template/obj/Debug/NancyApplication3.exe.mdb
-/Users/HEDWIN/Desktop/openshift-community-cartridge-mono/template/bin/Debug/Nancy.dll
-/Users/HEDWIN/Desktop/openshift-community-cartridge-mono/template/bin/Debug/Nancy.Hosting.Self.dll
