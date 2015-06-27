@@ -1,5 +1,5 @@
-prefix=${OPENSHIFT_MONO_DIR}/mono
-exec_prefix=${OPENSHIFT_MONO_DIR}/mono
+prefix=$OPENSHIFT_MONO_DIR/mono
+exec_prefix=$OPENSHIFT_MONO_DIR/mono
 libdir=${exec_prefix}/lib
 includedir=${prefix}/include
 

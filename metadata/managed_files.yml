@@ -2,9 +2,5 @@
 locked_files:
 # - env/
 # - env/*
- - .dnx
- - .dnx/*
- - .config
- - .config/*
 processed_templates:
 - '**/*.erb'
