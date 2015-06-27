@@ -1,7 +1,7 @@
 #!/bin/bash -e
 
 source $OPENSHIFT_CARTRIDGE_SDK_BASH
-source $OPENSHIFT_MONO_DIR/mono/.dnx/dnvm/dnvm.sh
+source $OPENSHIFT_MONO_DIR/.dnx/dnvm/dnvm.sh
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$OPENSHIFT_MONO_DIR/mono/lib
 
 HTTPD_CFG_FILE=$OPENSHIFT_MONO_DIR/etc/conf/httpd.conf
