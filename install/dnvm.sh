@@ -560,8 +560,8 @@ dnvm()
                     PATH=$(__dnvm_strip_path "$PATH" "/bin")
                     PATH=$(__dnvm_prepend_path "$PATH" "$runtimeBin")
                     ###BRADA
-                    echo "$(__dnvm_strip_path "$PATH" "/bin")" >> $OPENSHIFT_DATA_DIR/.bash_profile
-                    echo "$(__dnvm_prepend_path "$PATH" "$runtimeBin")" >> $OPENSHIFT_DATA_DIR/.bash_profile
+                    printf PATH=$(__dnvm_strip_path "$PATH" "/bin") "\n" >> $OPENSHIFT_DATA_DIR/.bash_profile
+                    printf PATH=$(__dnvm_prepend_path "$PATH" "$runtimeBin") "\n" >> $OPENSHIFT_DATA_DIR/.bash_profile
                     ###
                     if [[ -n $persistent ]]; then
                         local runtimeVersion=$(__dnvm_package_version "$runtimeFullName")
