@@ -8,6 +8,10 @@ HTTPD_CFG_DIR=$OPENSHIFT_MONO_DIR/etc/conf.d/
 HTTPD_PID_FILE=$OPENSHIFT_MONO_DIR/run/httpd.pid
 
 function apache() {
+    export PATH=$(cat $OPENSHIFT_HOMEDIR/.env/user_vars/PATH)
+    dnu restore $OPENSHIFT_REPO_DIR
+    defaultNetAlias=$(<$OPENSHIFT_HOMEDIR/.dnx/alias/default.alias)
+    
     client_message "$2 ASP.NET 5 Server"
     nohup dnx $OPENSHIFT_REPO_DIR kestrel |& /usr/bin/logshifter -tag mono &
 
@@ -55,12 +59,10 @@ function tidy() {
 }
 
 function build() {
-    export PATH=$(cat $OPENSHIFT_HOMEDIR/.env/user_vars/PATH)
-    dnu restore $OPENSHIFT_REPO_DIR
-    defaultNetAlias=$(<$OPENSHIFT_HOMEDIR/.dnx/alias/default.alias)
     # if [ -f "${OPENSHIFT_REPO_DIR}"/project.json ]; then
     #     (cd "${OPENSHIFT_REPO_DIR}"; nodejs_context "npm install -d")
     # fi
+    return 0;
 }
 
 case "$1" in
