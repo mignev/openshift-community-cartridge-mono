@@ -26,12 +26,7 @@ function stop() {
     # wait_for_stop $httpd_pid
     return $?
 }
-function pre_start() {
-    export PATH=$(cat $OPENSHIFT_HOMEDIR/.env/user_vars/PATH)
-    dnu restore $OPENSHIFT_REPO_DIR
-    defaultNetAlias=$(<$OPENSHIFT_HOMEDIR/.dnx/alias/default.alias)
-    return $?
-}
+
 function configtest() {
     client_message "Testing Apache *.conf files"
     /usr/sbin/httpd -C "Include $HTTPD_CFG_DIR/*.conf" -f $HTTPD_CFG_FILE -t
@@ -66,7 +61,6 @@ function build() {
 case "$1" in
   start)           apache start "Starting" ;;
   stop)            stop ;;
-  pre_start)       pre_start ;;
   restart)         apache restart "Restarting" ;;
   reload|graceful) apache graceful "Restarting gracefully" ;;
   status)          status ;;
