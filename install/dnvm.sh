@@ -559,7 +559,7 @@ dnvm()
 
                     PATH=$(__dnvm_strip_path "$PATH" "/bin")
                     #PATH="$runtimeBin:$PATH"
-                    #echo $PATH > $OPENSHIFT_HOMEDIR/.env/user_vars/PATH
+                    echo "$runtimeBin:$PATH" > $OPENSHIFT_HOMEDIR/.env/user_vars/PATH
                     #PATH=$(__dnvm_prepend_path "$PATH" "$runtimeBin")
 
                     if [[ -n $persistent ]]; then
