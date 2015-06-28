@@ -1,3 +1,0 @@
-export PATH=$(cat $OPENSHIFT_HOMEDIR/.env/user_vars/PATH)
-dnu restore $OPENSHIFT_REPO_DIR
-defaultNetAlias=$(<$OPENSHIFT_HOMEDIR/.dnx/alias/default.alias)

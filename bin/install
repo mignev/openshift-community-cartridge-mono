@@ -1,8 +1,7 @@
 mkdir "$OPENSHIFT_HOMEDIR"/.config
 mkdir "$OPENSHIFT_HOMEDIR"/.dnx
 mkdir "$OPENSHIFT_HOMEDIR"/.local
-mv "$OPENSHIFT_HOMEDIR"/mono/install/.openshift "$OPENSHIFT_HOMEDIR"/
-chown $OPENSHIFT_APP_UUID.$OPENSHIFT_APP_UUID -R "$OPENSHIFT_HOMEDIR"/.config "$OPENSHIFT_HOMEDIR"/.dnx "$OPENSHIFT_HOMEDIR"/.local "$OPENSHIFT_HOMEDIR"/.openshift
+chown $OPENSHIFT_APP_UUID.$OPENSHIFT_APP_UUID -R "$OPENSHIFT_HOMEDIR"/.config "$OPENSHIFT_HOMEDIR"/.dnx "$OPENSHIFT_HOMEDIR"/.local
 mv "$OPENSHIFT_HOMEDIR"/mono/install/.mono "$OPENSHIFT_HOMEDIR"/.config
 mv "$OPENSHIFT_HOMEDIR"/mono/install/packages "$OPENSHIFT_HOMEDIR"/.dnx
 mv "$OPENSHIFT_HOMEDIR"/mono/install/dnvm.sh "$OPENSHIFT_HOMEDIR"/.config/dnvm.sh
