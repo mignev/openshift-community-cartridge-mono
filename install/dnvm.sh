@@ -556,13 +556,6 @@ dnvm()
                 ;;
                 "use")
                     echo "Adding" $runtimeBin "to process PATH"
-                    ###
-                    #echo "export PATH="$(__dnvm_strip_path "$PATH" "/bin") >> $OPENSHIFT_DATA_DIR/.bash_profile
-                    # if [[ -e $hostpath ]]; then
-                    #     $hostpath $@
-                    # fi
-                     echo "export PATH="$(__dnvm_prepend_path "$PATH" "$runtimeBin") >> $OPENSHIFT_DATA_DIR/.bash_profile
-                    ###
 
                     PATH=$(__dnvm_strip_path "$PATH" "/bin")
                     PATH=$(__dnvm_prepend_path "$PATH" "$runtimeBin")
