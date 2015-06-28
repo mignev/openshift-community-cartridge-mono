@@ -3,12 +3,12 @@ mkdir "$OPENSHIFT_HOMEDIR"/.dnx
 mkdir "$OPENSHIFT_HOMEDIR"/.local
 chown $OPENSHIFT_APP_UUID.$OPENSHIFT_APP_UUID -R "$OPENSHIFT_HOMEDIR"/.config "$OPENSHIFT_HOMEDIR"/.dnx "$OPENSHIFT_HOMEDIR"/.local
 mv "$OPENSHIFT_HOMEDIR"/mono/install/.mono "$OPENSHIFT_HOMEDIR"/.config
+mv "$OPENSHIFT_HOMEDIR"/mono/install/packages "$OPENSHIFT_HOMEDIR"/.dnx
 mv "$OPENSHIFT_HOMEDIR"/mono/install/dnvm.sh "$OPENSHIFT_HOMEDIR"/.config/dnvm.sh
 printf "source $OPENSHIFT_HOMEDIR/.config/dnvm.sh\n" >> $OPENSHIFT_DATA_DIR/.bash_profile
 printf "export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$OPENSHIFT_MONO_DIR/mono/lib\n" >> $OPENSHIFT_DATA_DIR/.bash_profile
-dnvm upgrade
 source $OPENSHIFT_DATA_DIR/.bash_profile
-
+dnvm upgrade
 
 
 #is_installed=$(cat $OPENSHIFT_DATA_DIR/.bash_profile| grep dnvm.sh'')
