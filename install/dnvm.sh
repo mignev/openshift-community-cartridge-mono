@@ -563,8 +563,13 @@ dnvm()
                     if [[ -n $persistent ]]; then
                         local runtimeVersion=$(__dnvm_package_version "$runtimeFullName")
                         ###
-                        local default_net_alias=$(<$OPENSHIFT_HOMEDIR/.dnx/alias/default.alias)
-                        echo $(__dnvm_prepend_path "$PATH" "$runtimeBin") | sed 's/$default_net_alias/$runtimeVersion/g' > $OPENSHIFT_HOMEDIR/.env/user_vars/PATH
+                        echo $PATH > $OPENSHIFT_HOMEDIR/.env/user_vars/PATH
+                        # local default_net_alias=$(<$OPENSHIFT_HOMEDIR/.dnx/alias/default.alias)
+                        # if grep -q $runtimeBin $PATH; then
+                        #   echo $PATH | sed 's/$default_net_alias/$runtimeVersion/g' > $OPENSHIFT_HOMEDIR/.env/user_vars/PATH
+                        # else
+                        #   echo $PATH > $OPENSHIFT_HOMEDIR/.env/user_vars/PATH
+                        # fi
                         ###
 
                         $_DNVM_COMMAND_NAME alias default "$runtimeVersion"
