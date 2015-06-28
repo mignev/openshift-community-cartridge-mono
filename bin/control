@@ -13,7 +13,9 @@ function start() {
     defaultNetAlias=$(<$OPENSHIFT_HOMEDIR/.dnx/alias/default.alias)
     
     client_message "$2 ASP.NET 5 Server"
-    nohup dnx $OPENSHIFT_REPO_DIR kestrel |& /usr/bin/logshifter -tag mono &
+    pushd $OPENSHIFT_REPO_DIR
+        nohup dnx . kestrel |& /usr/bin/logshifter -tag mono &
+    popd
 
     # [ "$1" != "stop" ] && update_httpd_passenv $HTTPD_CFG_FILE
     # /usr/sbin/httpd -C "Include $HTTPD_CFG_DIR/*.conf" -f $HTTPD_CFG_FILE -k $1
