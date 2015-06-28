@@ -1,7 +1,7 @@
 Name: mono
 Cartridge-Short-Name: MONO
 Display-Name: ASP.NET Cartridge using Mono
-Source-Url: https://github.com/fakedob/openshift-community-cartridge-mono.git
+Source-Url: https://github.com/mignev/openshift-community-cartridge-mono.git
 Description: "ASP.NET 5 for OpenShift."
 Version: '4.0.2'
 License: "GPL/LGPL"
