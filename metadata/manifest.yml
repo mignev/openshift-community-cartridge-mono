@@ -71,7 +71,7 @@ Subscribes:
 Endpoints:
   - Private-IP-Name:   IP
     Private-Port-Name: PORT
-    Private-Port:      9032
+    Private-Port:      8080
     Public-Port-Name:  PROXY_PORT
     Mappings:
       - Frontend:      ""
