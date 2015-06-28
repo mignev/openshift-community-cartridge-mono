@@ -558,8 +558,8 @@ dnvm()
                     echo "Adding" $runtimeBin "to process PATH"
 
                     PATH=$(__dnvm_strip_path "$PATH" "/bin")
-                    PATH="$runtimeBin:$PATH"
-                    echo $PATH > $OPENSHIFT_HOMEDIR/.env/user_vars/PATH
+                    #PATH="$runtimeBin:$PATH"
+                    #echo $PATH > $OPENSHIFT_HOMEDIR/.env/user_vars/PATH
                     #PATH=$(__dnvm_prepend_path "$PATH" "$runtimeBin")
 
                     if [[ -n $persistent ]]; then
