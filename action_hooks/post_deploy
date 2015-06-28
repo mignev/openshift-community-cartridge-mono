@@ -1,3 +1,4 @@
+source $OPENSHIFT_DATA_DIR/.bash_profile
 pushd $OPENSHIFT_REPO_DIR
 dnu restore
 popd
