@@ -563,7 +563,7 @@ dnvm()
                     local runtimeVersion=$(__dnvm_package_version "$runtimeFullName")
                     local defaultNetAlias=$(<$OPENSHIFT_HOMEDIR/.dnx/alias/default.alias)
 
-                    if [ -z != $defaultNetAlias ]; then
+                    if [ ! -z "$defaultNetAlias" ]; then
                       PATH=$(echo $PATH | sed "s/$defaultNetAlias/dnx-mono.$runtimeVersion/g")
                     else
                       PATH="$runtimeBin:$PATH"

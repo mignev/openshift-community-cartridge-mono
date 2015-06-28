@@ -1,1 +1,0 @@
-dnu restore $OPENSHIFT_REPO_DIR

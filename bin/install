@@ -16,4 +16,3 @@ else
   source $OPENSHIFT_HOMEDIR/.config/dnvm.sh
   dnvm upgrade
 fi
-dnu restore $OPENSHIFT_REPO_DIR
