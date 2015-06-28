@@ -557,23 +557,18 @@ dnvm()
                 "use")
                     echo "Adding" $runtimeBin "to process PATH"
 
-                    PATH=$(__dnvm_strip_path "$PATH" "/bin")
-                    #PATH="$runtimeBin:$PATH"
-                    echo "$runtimeBin:$PATH" > $OPENSHIFT_HOMEDIR/.env/user_vars/PATH
+                    #PATH=$(__dnvm_strip_path "$PATH" "/bin")
                     #PATH=$(__dnvm_prepend_path "$PATH" "$runtimeBin")
-
+                    ###
+                    local default_net_alias=$(<$OPENSHIFT_HOMEDIR/.dnx/alias/default.alias)
+                    if grep -q $runtimeBin $defaultNetAlias; then
+                      echo $PATH | sed 's/$defaultNetAlias/$runtimeVersion/g' > $OPENSHIFT_HOMEDIR/.env/user_vars/PATH
+                    else
+                      echo "$runtimeBin:$PATH" > $OPENSHIFT_HOMEDIR/.env/user_vars/PATH
+                    fi
+                    ###
                     if [[ -n $persistent ]]; then
                         local runtimeVersion=$(__dnvm_package_version "$runtimeFullName")
-                        ###
-                        #echo $PATH > $OPENSHIFT_HOMEDIR/.env/user_vars/PATH
-                        # local default_net_alias=$(<$OPENSHIFT_HOMEDIR/.dnx/alias/default.alias)
-                        # if grep -q $runtimeBin $PATH; then
-                        #   echo $PATH | sed 's/$default_net_alias/$runtimeVersion/g' > $OPENSHIFT_HOMEDIR/.env/user_vars/PATH
-                        # else
-                        #   echo $PATH > $OPENSHIFT_HOMEDIR/.env/user_vars/PATH
-                        # fi
-                        ###
-
                         $_DNVM_COMMAND_NAME alias default "$runtimeVersion"
                     fi
                 ;;
