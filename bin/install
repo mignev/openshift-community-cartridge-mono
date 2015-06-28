@@ -9,6 +9,8 @@ mv "$OPENSHIFT_HOMEDIR"/mono/install/dnvm.sh "$OPENSHIFT_HOMEDIR"/.config/dnvm.s
 
 #is_installed=$(cat $OPENSHIFT_DATA_DIR/.bash_profile| grep dnvm.sh'')
 if grep -q dnvm $OPENSHIFT_DATA_DIR/.bash_profile; then
+  #
+else
   echo "source $OPENSHIFT_HOMEDIR/.config/dnvm.sh" >> $OPENSHIFT_DATA_DIR/.bash_profile
   echo "export LD_LIBRARY_PATH=$OPENSHIFT_MONO_DIR/mono/lib" >> $OPENSHIFT_DATA_DIR/.bash_profile
   echo "export MONO_MANAGED_WATCHER=disabled" >> $OPENSHIFT_DATA_DIR/.bash_profile
