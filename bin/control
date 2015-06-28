@@ -7,7 +7,7 @@ HTTPD_CFG_FILE=$OPENSHIFT_MONO_DIR/etc/conf/httpd.conf
 HTTPD_CFG_DIR=$OPENSHIFT_MONO_DIR/etc/conf.d/
 HTTPD_PID_FILE=$OPENSHIFT_MONO_DIR/run/httpd.pid
 
-function apache() {
+function start() {
     export PATH=$(cat $OPENSHIFT_HOMEDIR/.env/user_vars/PATH)
     dnu restore $OPENSHIFT_REPO_DIR
     defaultNetAlias=$(<$OPENSHIFT_HOMEDIR/.dnx/alias/default.alias)
@@ -18,6 +18,10 @@ function apache() {
     # [ "$1" != "stop" ] && update_httpd_passenv $HTTPD_CFG_FILE
     # /usr/sbin/httpd -C "Include $HTTPD_CFG_DIR/*.conf" -f $HTTPD_CFG_FILE -k $1
     return $?
+}
+
+function restart() {
+    return 0
 }
 
 function stop() {
@@ -66,9 +70,9 @@ function build() {
 }
 
 case "$1" in
-  start)           apache start "Starting" ;;
+  start)           start "Starting" ;;
   stop)            stop ;;
-  restart)         apache restart "Restarting" ;;
+  restart)         restart "Restarting" ;;
   reload|graceful) apache graceful "Restarting gracefully" ;;
   status)          status ;;
   configtest)      configtest ;;
