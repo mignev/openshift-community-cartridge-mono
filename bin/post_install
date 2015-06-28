@@ -1,3 +1,0 @@
-pushd $OPENSHIFT_REPO_DIR
-dnu restore
-popd
