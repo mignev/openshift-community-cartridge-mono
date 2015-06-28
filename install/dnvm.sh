@@ -560,7 +560,7 @@ dnvm()
                     #PATH=$(__dnvm_strip_path "$PATH" "/bin")
                     #PATH=$(__dnvm_prepend_path "$PATH" "$runtimeBin")
                     ###
-                    local default_net_alias=$(<$OPENSHIFT_HOMEDIR/.dnx/alias/default.alias)
+                    local defaultNetAlias=$(<$OPENSHIFT_HOMEDIR/.dnx/alias/default.alias)
                     if grep -q $runtimeBin $defaultNetAlias; then
                       echo $PATH | sed 's/$defaultNetAlias/$runtimeVersion/g' > $OPENSHIFT_HOMEDIR/.env/user_vars/PATH
                     else
