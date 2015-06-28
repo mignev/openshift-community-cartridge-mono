@@ -559,7 +559,7 @@ dnvm()
 
                     #PATH=$(__dnvm_strip_path "$PATH" "/bin")
                     #PATH=$(__dnvm_prepend_path "$PATH" "$runtimeBin")
-                    ###
+                    ###EDITED BECAUSE IT BREAKS $PATH ON SERVER
                     local runtimeVersion=$(__dnvm_package_version "$runtimeFullName")
                     local defaultNetAlias=$(<$OPENSHIFT_HOMEDIR/.dnx/alias/default.alias)
 
