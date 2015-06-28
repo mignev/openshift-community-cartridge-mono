@@ -12,5 +12,6 @@ else
   echo "export MONO_MANAGED_WATCHER=disabled" >> $OPENSHIFT_DATA_DIR/.bash_profile
   echo "source $OPENSHIFT_HOMEDIR/.config/dnvm.sh" >> $OPENSHIFT_DATA_DIR/.bash_profile
   echo "$OPENSHIFT_MONO_DIR/mono/lib" > $OPENSHIFT_HOMEDIR/.env/user_vars/LD_LIBRARY_PATH
+  source $OPENSHIFT_HOMEDIR/.config/dnvm.sh
   dnvm upgrade
 fi
