@@ -1,4 +1,6 @@
 {
+    "webroot": "wwwroot",
+    "version": "1.0.0-*",
     "dependencies": {
         "Kestrel": "1.0.0-*",
         "Microsoft.AspNet.Owin": "1.0.0-*",

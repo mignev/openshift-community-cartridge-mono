@@ -2,9 +2,9 @@ namespace SAPPNancy
 {
     using Nancy;
 
-    public class HomeModule : NancyModule
+    public class IndexModule : NancyModule
     {
-        public HomeModule()
+        public IndexModule()
         {
             Get["/"] = _ => {
                 return View["index.html"];
