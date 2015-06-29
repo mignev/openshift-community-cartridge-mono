@@ -1,0 +1,5 @@
+if [ -f "${OPENSHIFT_REPO_DIR}"/project.json ]; then
+    export PATH=$(cat $OPENSHIFT_HOMEDIR/.env/user_vars/PATH)
+    client_message "Restoring NuGet Packages..."
+    dnu restore $OPENSHIFT_REPO_DIR
+fi
