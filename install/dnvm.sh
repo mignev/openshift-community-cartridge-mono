@@ -569,6 +569,9 @@ dnvm()
                       PATH="$runtimeBin:$PATH"
                     fi
                     echo $PATH > $OPENSHIFT_HOMEDIR/.env/user_vars/PATH
+                    DNX_RUNTIME_BIN="$runtimeBin"
+                    echo $runtimeBin > $OPENSHIFT_HOMEDIR/.env/user_vars/DNX_RUNTIME_BIN
+
                     ###
                     if [[ -n $persistent ]]; then
                         #local runtimeVersion=$(__dnvm_package_version "$runtimeFullName")
