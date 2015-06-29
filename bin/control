@@ -19,6 +19,7 @@ function apache() {
 }
 
 function stop() {
+    killall mono
     #PID=$(cat  $OPENSHIFT_MONO_DIR/run/mono.pid)
     #kill $PID
     return $?
