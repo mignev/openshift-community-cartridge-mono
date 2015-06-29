@@ -9,12 +9,4 @@ namespace SAPPNancy
             app.UseOwin(x => x.UseNancy()).UseFileServer();
         }
     }
-
-    // public class CustomBootstrapper : DefaultNancyBootstrapper
-    // {
-    //     protected override IRootPathProvider RootPathProvider
-    //     {
-    //         get { return new CustomRootPathProvider(); }
-    //     }
-    // }
 }
