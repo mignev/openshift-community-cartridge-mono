@@ -1,28 +1,18 @@
 #!/bin/bash -e
 
 source $OPENSHIFT_CARTRIDGE_SDK_BASH
-# source $OPENSHIFT_DATA_DIR/.bash_profile
-#
-# HTTPD_CFG_FILE=$OPENSHIFT_MONO_DIR/etc/conf/httpd.conf
-# HTTPD_CFG_DIR=$OPENSHIFT_MONO_DIR/etc/conf.d/
-# HTTPD_PID_FILE=$OPENSHIFT_MONO_DIR/run/httpd.pid
+MONO_PID_FILE=$OPENSHIFT_MONO_DIR/run/mono.pid
 
 function apache() {
     client_message "$2 vNext Server"
     nohup dnx $OPENSHIFT_REPO_DIR kestrel |& /usr/bin/logshifter -tag mono &
-
-    #echo $! > $OPENSHIFT_MONO_DIR/run/mono.pid
-
-    # [ "$1" != "stop" ] && update_httpd_passenv $HTTPD_CFG_FILE
-    # /usr/sbin/httpd -C "Include $HTTPD_CFG_DIR/*.conf" -f $HTTPD_CFG_FILE -k $1
-    return $?
+    echo $! > $OPENSHIFT_MONO_DIR/run/mono.pid
 }
 
 function stop() {
-    killall mono
-    #PID=$(cat  $OPENSHIFT_MONO_DIR/run/mono.pid)
-    #kill $PID
-    return $?
+    client_message "$2 vNext Server"
+    mono_pid=$(cat  $OPENSHIFT_MONO_DIR/run/mono.pid)
+    kill $mono_pid
 }
 
 function configtest() {

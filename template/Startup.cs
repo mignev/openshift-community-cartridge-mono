@@ -1,8 +1,8 @@
-namespace TestNancy
+namespace SAPPNancy
 {
     using Microsoft.AspNet.Builder;
     using Nancy.Owin;
- 
+
     public class Startup
     {
         public void Configure(IApplicationBuilder app)

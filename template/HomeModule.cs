@@ -1,12 +1,14 @@
-namespace TestNancy
+namespace SAPPNancy
 {
     using Nancy;
-    
+
     public class HomeModule : NancyModule
     {
         public HomeModule()
         {
-            Get["/"] = _ => "Hello World";
+            Get["/"] = _ => {
+                return View["index.html"];
+            };
         }
     }
 }
