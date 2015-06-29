@@ -6,7 +6,7 @@ namespace SAPPNancy
     {
         public string GetRootPath()
         {
-            return Environment.GetEnvironmentVariable("DNX_RUNTIME_BIN");
+            return Environment.GetEnvironmentVariable("OPENSHIFT_REPO_DIR");
         }
     }
 }

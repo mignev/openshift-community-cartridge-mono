@@ -6,7 +6,7 @@ namespace SAPPNancy
     {
         protected override IRootPathProvider RootPathProvider
         {
-            get { return string.IsNullOrEmpty(Environment.GetEnvironmentVariable("DNX_RUNTIME_BIN")) ? base.RootPathProvider : new SAPPRootPathProvider(); }
+            get { return string.IsNullOrEmpty(Environment.GetEnvironmentVariable("OPENSHIFT_REPO_DIR")) ? base.RootPathProvider : new SAPPRootPathProvider(); }
         }
     }
 }
